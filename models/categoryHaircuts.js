@@ -21,6 +21,10 @@ const Categories  = db.define('barberShop_categories',{
         allowNull: true,
 
     },
+    image: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }
    
 });
 

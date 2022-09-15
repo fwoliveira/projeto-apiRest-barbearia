@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../database/db');
 
 
-const User = db.define('barberShop_user',{
+const Users = db.define('barberShop_user',{
     id:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -33,11 +33,11 @@ const User = db.define('barberShop_user',{
 });
 
 //criar tabela com sequelize_scope_error_default
-//User.sync();
+//Users.sync();
 //excluir a tabela e criar novamente
-//User.sync({force:true});
+//Users.sync({force:true});
 //verificar se algum diferença na tabela , realiza alteracao
-//User.sync({alter: true});
+//Users.sync({alter: true});
 //cadastrar registro no banco de dados
 
-module.exports = User;
+module.exports = Users;

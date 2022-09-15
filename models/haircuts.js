@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const db = require('../database/db');
-const Categories = require('./categoryCortes');
+const Categories = require('./categoryHaircuts');
 
-const Cortes = db.define('barberShop_cortes', {
+const Haircuts = db.define('barberShop_Haircuts', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -20,10 +20,14 @@ const Cortes = db.define('barberShop_cortes', {
     price: {
         type: Sequelize.DECIMAL(15,2),
         allowNull: false,
+    },
+    image: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 })
 
-Cortes.belongsTo(Categories, {
+Haircuts.belongsTo(Categories, {
     constraint: true,
     foreignKey: 'categorieId',
     onDelete: 'RESTRICT',
@@ -31,12 +35,12 @@ Cortes.belongsTo(Categories, {
 })
 
 //Criar a tabela com sequelize
- //Cortes.sync();
+ //Haircuts.sync();
 
 //Excluir a tabela e criar novamente
-//Cortes.sync({ force: true});
+//Haircuts.sync({ force: true});
 
 //Verificar se há alguma diferença na tabela, realiza alteração
-// Cortes.sync({ alter: true});
+// Haircuts.sync({ alter: true});
 
-module.exports = Cortes;
+module.exports = Haircuts;
